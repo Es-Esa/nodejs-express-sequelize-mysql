@@ -1,5 +1,6 @@
 module.exports = app => {
   const tutorials = require("../controllers/tutorial.controller.js");
+  const comments = require("../controllers/comment.controller.js"); //täytyy vissiin muistaa importata kommenttien controller :D
 
   var router = require("express").Router();
 
@@ -23,6 +24,17 @@ module.exports = app => {
 
   // Delete all Tutorials
   router.delete("/", tutorials.deleteAll);
+
+// Route for creating a comment
+  router.post('/comments/:tutorialId', comments.create);
+
+// Route for fetching all comments for a tutorial
+  router.get('/comments/:tutorialId', comments.findAll);
+
+
+
+ 
+
 
   app.use('/api/tutorials', router);
 };

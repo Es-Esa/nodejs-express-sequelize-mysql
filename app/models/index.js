@@ -20,5 +20,5 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.tutorials = require("./tutorial.model.js")(sequelize, Sequelize);
-
+db.Comment = require("./comment.model.js")(sequelize, Sequelize); //lisäsin tämän rivin jotta kommentit toimisivat
 module.exports = db;
